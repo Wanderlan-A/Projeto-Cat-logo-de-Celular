@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- pagina de catalogo de celulares -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Catálogo de Celulares</title>
+    <style>
+        /* aqui vai os estilos principais */
+        :root {
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #f4f4f8;
+            line-height: 1.5;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        a, button, input {
+            font: inherit;
+        }
+
+        /* pagina principal */
+        body > .page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* header azul */
+        header {
+            background: #0066cc;
+            color: white;
+            padding: 1.5rem 1rem;
+        }
+        header h1 {
+            margin: 0 0 .5rem;
+            font-size: 1.6rem;
+        }
+        header p {
+            margin: 0;
+            max-width: 38rem;
+        }
+
+        /* area de busca */
+        .search-area {
+            padding: 1rem;
+            background: white;
+            border-bottom: 1px solid #d6d6dc;
+        }
+        .search-area label {
+            display: block;
+            margin-bottom: .5rem;
+            font-weight: bold;
+        }
+        .search-area input {
+            width: 100%;
+            padding: .8rem 1rem;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+        }
+        .search-area input:focus {
+            outline: 3px solid #ffcc00;
+            border-color: #0066cc;
+        }
+
+        /* main content */
+        main {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        /* grid dos cards */
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        /* media query pra desktop */
+        @media (min-width: 800px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* estilo dos cards */
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0,0,0,.08);
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        .card:focus-within {
+            border-color: #0066cc;
+        }
+        .card img {
+            width: 100%;
+            display: block;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-details {
+            padding: 1rem;
+        }
+        .card-title {
+            margin: 0 0 .4rem;
+            font-size: 1.1rem;
+        }
+        .card-meta {
+            margin: .4rem 0 .8rem;
+            color: #555;
+            font-size: .95rem;
+        }
+        .card-description {
+            margin: 0 0 1rem;
+        }
+
+        /* botoes */
+        .card button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: .8rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .card button:focus-visible,
+        .card a:focus-visible,
+        .search-area input:focus-visible {
+            outline: 3px solid #ffcc00;
+            outline-offset: 2px;
+        }
+        .card button:hover {
+            background: #0052a3;
+        }
+
+        /* footer */
+        footer {
+            background: #f0f2f8;
+            text-align: center;
+            padding: 1rem;
+            font-size: .95rem;
+            color: #444;
+        }
+        /* classe pra esconder */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- div principal da pagina -->
+    <div class="page">
+        <!-- header com titulo -->
+        <header>
+            <h1>Mini Catálogo de Celulares de Novo Gama-GO</h1>
+            <p>Encontre lojas e oficinas de celular em Novo Gama. Use a busca para filtrar por nome do local.</p>
+        </header>
+        <section class="search-area" aria-labelledby="busca-titulo">
+            <h2 id="busca-titulo" class="sr-only">Busca por título</h2>
+            <label for="search">Buscar por texto no título</label>
+            <input id="search" type="search" placeholder="Digite o nome da loja ou celular" aria-describedby="search-help">
+            <div id="search-help">A busca considera apenas o texto do título.</div>
+        </section>
+
+        <main>
+            <!-- grid dos cards -->
+            <section class="grid" id="catalogo" aria-live="polite">
+                <!-- primeiro card -->
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweonlc2hWYiWxB0litOIoZT3tWa9DQlOqgx5C7WioK71tzQWD8tpHT9RNYi0Y7TcGuva6QSRnjtfGgHiFw3iEQIwKDZICkGgWbK9-KKqALJ_sY4InmLKtE6Rbwz24blHSMQt_6LmaF2kD8U=s680-w680-h510-rw" />
+                    <div class="card-details">
+                        <h3 class="card-title">My Cell Assistência Técnica e Acessórios</h3>
+                        <p class="card-meta">R. Três - Parque Estrela Dalva VI, Novo Gama - GO</p>
+                        <p class="card-description">Oficina e venda de celulares com assistência técnica rápida e entrega de peças.</p>
+                        <button type="button" onclick="alert('Visite a Conecta Celulares na R. Três - Parque Estrela Dalva VI, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipO3cSOsve_jhI4cVDNZgwPmGYyLAwh2q4b25pqP=s680-w680-h510-rw" alt="Vitrine de loja de celulares com vários modelos" />
+                    <div class="card-details">
+                        <h3 class="card-title">PlayCell Novo Gama</h3>
+                        <p class="card-meta"> CONJUNTO 2HI - Nucleo Hab. Novo Gama, Novo Gama - GO</p>
+                        <p class="card-description">Assistência técnica e acessórios para smartphones de todas as marcas.</p>
+                        <button type="button" onclick="alert('Veja o catálogo da PlayCell Novo Gama  CONJUNTO 2HI - Nucleo Hab. Novo Gama, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipPwALlsPsxM4E_s-qSCy8iSqQa_qB9WY0yzaDVG=s680-w680-h510-rw" alt="Pessoa usando um celular moderno na mão" />
+                    <div class="card-details">
+                        <h3 class="card-title">i9 Novidades</h3>
+                        <p class="card-meta"> Quadra 482 lote 23 loja 01/02 Box 45/46/47/48 - Parque Estrela Dalva VI, Novo Gama - GO</p>
+                        <p class="card-description">Venda de aparelhos novos, usados e consertos com garantia de serviço.</p>
+                        <button type="button" onclick="alert('Confira o i9 Novidades na  Quadra 482 lote 23 loja 01/02 Box 45/46/47/48 - Parque Estrela Dalva VI, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMCh3MXuoi8W7VJvMali7C0safDlGXowFpMc7s5=s680-w680-h510-rw" alt="Celular aberto com peças e ferramentas ao redor" />
+                    <div class="card-details">
+                        <h3 class="card-title">Marcocell Celular</h3>
+                        <p class="card-meta">R. 43, Qd 482 - lote 20 - Parque Estrela Dalva VI, Novo Gama - GO</p>
+                        <p class="card-description">Serviço de troca de telas e baterias com atendimento rápido em Novo Gama.</p>
+                        <button type="button" onclick="alert('Entre em contato com o Marcocell Celular na R. 43, Qd 482 - lote 20 - Parque Estrela Dalva VI, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwerswqRpJaeyTB6BQnVky__WEZ1HUDrLVRcqG-UQxHat93JVoKwNK13ay_ZFRDiPo_8VO0jD3uwKti8TjY1cS3R10bsxYbFwbiboxohQ9_lMQi2yVLvicXLF8_qRlHj9Eq8TEvMP=s680-w680-h510-rw" alt="Homem mostrando um celular em uma loja" />
+                    <div class="card-details">
+                        <h3 class="card-title">Tec Cell novo gama</h3>
+                        <p class="card-meta">conjunto 1hi rua 35 casa 30 - Novo Gama, GO</p>
+                        <p class="card-description">Pequena oficina com peças originais e conserto de touchscreen em até 24h.</p>
+                        <button type="button" onclick="alert('Conheça o Tec Cell novo gama na conjunto 1hi rua 35 casa 30 - Novo Gama, GO.')">Ver mais</button>
+                    </div>
+                </article>
+                
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweohbzmIOKU9hnOvJn8K6XYvqMD0cgXywMsGGcBZca_sAAa45qCKycH-LbzYc1VIKf_q_ZGxA3VyPQNYQyTnTmn4L4JWD74o-bJ4ZtY5hDwt1iu6Nnepr6VsM-DaRZWgiVbsuEL6T_exX0Y=s680-w680-h510-rw" alt="Duas pessoas comparando celulares em uma mesa" />
+                    <div class="card-details">
+                        <h3 class="card-title">CAPACEL STORE - PEDREGAL</h3>
+                        <p class="card-meta">Pedregal Rua principal do Pedregal - Parque Estrela Dalva VI, Novo Gama - GO</p>
+                        <p class="card-description">Troca de vidro e substituição de bateria com orçamento gratuito.</p>
+                        <button type="button" onclick="alert('Veja mais na CAPACEL STORE - PEDREGAL na Pedregal Rua principal do Pedregal - Parque Estrela Dalva VI, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipP9dwjKgLufWeMHrAOECvsTNwfZodO3koEnOlrm=s680-w680-h510-rw" alt="Pessoa segurando um telefone celular dentro de uma loja" />
+                    <div class="card-details">
+                        <h3 class="card-title">Noax celulares e Informatica</h3>
+                        <p class="card-meta">Quadra 477 , LT 01/02 Loja 10 - Parque Estrela Dalva VI, Novo Gama - GO</p>
+                        <p class="card-description">Loja completa de celulares, capas e assistência técnica em Novo Gama.</p>
+                        <button type="button" onclick="alert('Noax celulares e Informatica fica na Quadra 477 , LT 01/02 Loja 10 - Parque Estrela Dalva VI, Novo Gama - GO.')">Ver mais</button>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>Catálogo responsivo com busca por título e navegação acessível.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // pega o input de busca
+        const searchInput = document.getElementById('search');
+        // pega todos os cards
+        const cards = Array.from(document.querySelectorAll('.card'));
+
+        // funcao pra atualizar o catalogo
+        function updateCatalog() {
+            // pega o que foi digitado
+            const query = searchInput.value.trim().toLowerCase();
+            // loop nos cards
+            cards.forEach(card => {
+                // pega o titulo
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                // verifica se inclui
+                if (title.includes(query)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // adiciona o evento
+        searchInput.addEventListener('input', updateCatalog);
+    </script>
+</body>
+</html>
